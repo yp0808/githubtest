@@ -218,3 +218,9 @@ git merge命令用于合并指定分支到当前分支。
 
 
 ----4.1----
+
+### 4.2 解决冲突
+
+准备新的feature1分支，继续我们的新分支开发：
+$ git checkout -b feature1
+切换到master分支：
