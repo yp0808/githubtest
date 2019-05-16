@@ -116,3 +116,43 @@ git checkout其实是用版本库里的版本替换工作区的版本，无论�
 注意：从来没有被添加到版本库就被删除的文件，是无法恢复的！
 
 -----2.5-----
+
+## 远程仓库
+注册GitHub账号。由于你的本地Git仓库和GitHub仓库之间的传输是通过SSH加密的，所以，需要一点设置：
+
+第1步：创建SSH Key。在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有id_rsa和id_rsa.pub这两个文件，如果已经有了，可直接跳到下一步。如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key：
+
+$ ssh-keygen -t rsa -C "youremail@example.com"
+
+如果一切顺利的话，可以在用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人。
+
+第2步：登陆GitHub，打开“Account settings”，“SSH Keys”页面：
+
+然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容：
+
+为什么GitHub需要SSH Key呢？因为GitHub需要识别出你推送的提交确实是你推送的，而不是别人冒充的，而Git支持SSH协议，所以，GitHub只要知道了你的公钥，就可以确认只有你自己才能推送。
+
+当然，GitHub允许你添加多个Key。假定你有若干电脑，你一会儿在公司提交，一会儿在家里提交，只要把每台电脑的Key都添加到GitHub，就可以在每台电脑上往GitHub推送了。
+### 3.1 添加远程仓库
+- 首先，登陆GitHub，然后，在右上角找到“Create a new repo”按钮，创建一个新的仓库：
+- 在本地的learngit仓库下运行命令：
+```
+$ git remote add origin git@github.com:xxx
+```
+- 下一步，就可以把本地库的所有内容推送到远程库上：
+```
+$ git push -u origin master
+```
+由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。
+----3.1----
+
+### 3.2 从远程克隆
+
+用命令git clone克隆一个本地库：
+
+```$ git clone git@github.com:michaelliao/gitskills.git```
+你也许还注意到，GitHub给出的地址不止一个，还可以用`https://github.com/michaelliao/gitskills.git` 这样的地址。实际上，Git支持多种协议，默认的`git://`使用ssh，但也可以使用https等其他协议。
+
+使用`https`除了速度慢以外，还有个最大的麻烦是每次推送都必须输入口令，但是在某些只开放`http`端口的公司内部就无法使用ssh协议而只能用`https`。
+
+-----3.2----
