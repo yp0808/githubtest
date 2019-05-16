@@ -274,3 +274,15 @@ $ git branch -d issue-101
 $ git checkout dev
 $ git status
 ---4.4---
+
+### 4.5 feature分支
+
+### 4.6 多人协作
+
+当你从远程仓库克隆时，实际上Git自动把本地的master分支和远程的master分支对应起来了，并且，远程仓库的默认名称是origin。
+
+要查看远程库的信息，用git remote
+或者，用git remote -v显示更详细的信息：
+推送分支，就是把该分支上的所有本地提交推送到远程库。推送时，要指定本地分支，这样，Git就会把该分支推送到远程库对应的远程分支上：
+
+$ git push origin master
