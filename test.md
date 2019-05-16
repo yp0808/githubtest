@@ -87,3 +87,8 @@ git diff退出：英文状态下按Q
 总之，就是让这个文件回到最近一次`git commit`或`git add`时的状态。
 
 
+如果修改后`git add`到暂存区了：
+git reset HEAD <file>可以把暂存区的修改撤销掉（unstage），重新放回工作区
+git reset命令既可以回退版本，也可以把暂存区的修改回退到工作区。当我们用HEAD时，表示最新的版本。
+再git checkout 
+------2.4------
