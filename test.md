@@ -209,3 +209,12 @@ $ git checkout master
 ```
 $ git merge dev
 ```
+
+git merge命令用于合并指定分支到当前分支。
+
+注意到上面的Fast-forward信息，Git告诉我们，这次合并是“快进模式”，也就是直接把master指向dev的当前提交，所以合并速度非常快。
+
+当然，也不是每次合并都能Fast-forward。
+
+
+----4.1----
