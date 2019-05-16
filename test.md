@@ -246,3 +246,11 @@ $ git checkout -b dev
 $ git add readme.txt 
 $ git commit -m "add merge"
 现在，我们切换回master：
+准备合并dev分支，请注意--no-ff参数，表示禁用Fast forward：
+$ git merge --no-ff -m "merge with no-ff" dev
+合并后，我们用git log看看分支历史：
+$ git log
+可以看到，不使用Fast forward模式，merge后就像这样：
+![avatar](8.png)
+
+---4.3---
