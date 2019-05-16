@@ -223,4 +223,26 @@ git merge命令用于合并指定分支到当前分支。
 
 准备新的feature1分支，继续我们的新分支开发：
 $ git checkout -b feature1
-切换到master分支：
+切换到master分支修改并提交
+现在，master分支和feature1分支各自都分别有新的提交，变成了这样：
+
+![avatar](7.png)
+
+这种情况下，Git无法执行“快速合并”，只能试图把各自的修改合并起来，但这种合并就可能会有冲突：
+$ git merge feature1
+--- 4.2---
+
+### 4.3 分支管理策略
+
+通常，合并分支时，如果可能，Git会用`Fast forward`模式，但这种模式下，删除分支后，会丢掉分支信息。
+
+如果要强制禁用`Fast forward`模式，Git就会在`merge`时生成一个新的`commit`，这样，从分支历史上就可以看出分支信息。
+
+下面我们实战一下`--no-ff`方式的git merge：
+
+首先，仍然创建并切换dev分支：
+$ git checkout -b dev
+修改
+$ git add readme.txt 
+$ git commit -m "add merge"
+现在，我们切换回master：
