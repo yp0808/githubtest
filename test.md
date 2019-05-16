@@ -7,7 +7,7 @@
 
 
 为什么Git添加文件需要add，commit一共两步呢？因为commit可以一次提交很多文件，所以你可以多次add不同的文件
-一个文件add一次
+每次都要add
 没有add*过*的文件不能commit
 
 ## 时光穿梭机
