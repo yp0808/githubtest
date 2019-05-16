@@ -265,5 +265,12 @@ $ git stash
 $ git checkout master
 $ git checkout -b issue-101
 修复完成后，切换到master分支，并完成合并，最后删除issue-101分支：
+```
 $ git checkout master
 $ git merge --no-ff -m "merged bug fix 101" issue-101
+$ git branch -d issue-101
+```
+现在，是时候接着回到dev分支干活了！
+$ git checkout dev
+$ git status
+---4.4---
