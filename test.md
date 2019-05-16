@@ -1,7 +1,7 @@
 ## git test
 
 提交更改
-` git commit -m "wrote a readme file" `
+`git commit -m "wrote a readme file" `
 
 `git commit`命令，`-m`后面输入的是本次提交的说明，可以输入任意内容，当然最好是有意义的，这样你就能从历史记录里方便地找到改动记录。
 
@@ -74,3 +74,16 @@ add
 git diff退出：英文状态下按Q
 
 ------2.3------
+
+## 2.4 撤销修改
+
+
+
+命令`git checkout -- test.md`，把test.md文件在工作区的修改全部撤销，这里有两种情况：
+
+一种是test.md自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；
+
+一种是test.md已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。
+总之，就是让这个文件回到最近一次`git commit`或`git add`时的状态。
+
+
