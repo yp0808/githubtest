@@ -67,5 +67,10 @@ Git管理的是修改，当你用git add命令后，在工作区的第一次修�
 添加1
 add
 添加2
+不add
+然后commit
 
-提交后，用git diff HEAD -- readme.txt命令可以查看工作区和版本库里面最新版本的区别：
+提交后，用`git diff HEAD -- test.md`命令可以查看工作区和版本库里面最新版本的区别：
+git diff退出：英文状态下按Q
+
+------2.3------
