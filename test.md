@@ -257,3 +257,13 @@ $ git log
 
 ### 4.4 bug分支
 
+当你接到一个修复一个代号101的bug的任务时，很自然地，你想创建一个分支issue-101来修复它，但是，等等，当前正在dev上进行的工作还没有提交：
+$ git status
+Git还提供了一个stash功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作
+$ git stash
+首先确定要在哪个分支上修复bug，假定需要在master分支上修复，就从master创建临时分支：
+$ git checkout master
+$ git checkout -b issue-101
+修复完成后，切换到master分支，并完成合并，最后删除issue-101分支：
+$ git checkout master
+$ git merge --no-ff -m "merged bug fix 101" issue-101
